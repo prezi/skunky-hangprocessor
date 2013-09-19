@@ -1,13 +1,17 @@
 from socorro.processor.signature_utilities import CSignatureTool
 from socorro.lib.util import DotDict, emptyFilter
-import processorconfig as old
+#import processorconfig as old
 from collections import namedtuple
 
 sigconfig = DotDict()
-sigconfig.irrelevant_signature_re = old.irrelevantSignatureRegEx.default
-sigconfig.prefix_signature_re = old.prefixSignatureRegEx
-sigconfig.signatures_with_line_numbers_re = old.signaturesWithLineNumbersRegEx.default
-sigconfig.signature_sentinels = old.signatureSentinels.default
+# a regular expression matching frame signatures that should be ignored when generating an overall signature
+sigconfig.irrelevant_signature_re = "" # old.irrelevantSignatureRegEx.default
+# a regular expression matching frame signatures that should always be coupled with the following frame signature when generating an overall signature
+sigconfig.prefix_signature_re = "" # old.prefixSignatureRegEx
+# any signatures that match this list should be combined with their associated source code line numbers
+sigconfig.signatures_with_line_numbers_re = "" # old.signaturesWithLineNumbersRegEx.default
+# a list of frame signatures that should always be considered top of the stack if present in the stack
+sigconfig.signature_sentinels = [] # old.signatureSentinels.default
 c_tool = CSignatureTool(sigconfig)
 
 Dump = namedtuple('Dump', ('os', 'signature', 'contents', 'error', 'threads', 'crashthread', 'cpu'))
