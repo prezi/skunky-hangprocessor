@@ -35,7 +35,18 @@ whitelist = set( (
     'Version',
     'Winsock_LSP',
 
-    'PreziOID'
+    'prezi_oid',
+    'Android_Manufacturer',
+    'Android_Model',
+    'Android_Board',
+    'Android_Brand',
+    'Android_Device',
+    'Android_Display',
+    'Android_Fingerprint',
+    'Android_CPU_ABI',
+    'Android_CPU_ABI2',
+    'Android_Hardware',
+    'Android_Version'
 ) )
 
 okchars = re.compile('[a-zA-Z0-9]+$')
