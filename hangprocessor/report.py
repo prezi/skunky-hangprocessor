@@ -33,7 +33,9 @@ whitelist = set( (
     'Throttleable',
     'Vendor',
     'Version',
-    'Winsock_LSP'
+    'Winsock_LSP',
+
+    'PreziOID'
 ) )
 
 okchars = re.compile('[a-zA-Z0-9]+$')
